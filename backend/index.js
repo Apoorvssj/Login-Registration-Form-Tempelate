@@ -33,11 +33,10 @@ app.get("/", (req, res) => {
 });
 
 //routes used
-// /api/ for vercel
-app.use("/api/", registerRoute);
-app.use("/api/", loginRoute);
-app.use("/api/", check);
-app.use("/api/", otp);
+app.use("/", registerRoute);
+app.use("/", loginRoute);
+app.use("/", check);
+app.use("/", otp);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
