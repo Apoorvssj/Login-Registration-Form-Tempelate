@@ -57,7 +57,7 @@ router.post("/otp", async (req, res) => {
     });
 
     const save = await NEW_OTP.save(sendmail()); //saving to mongoDB database
-    res.status(200).json(save);
+    res.status(200).json("Otp sent");
   } catch (err) {
     // res.send(err.message);
     // res.status(403).json(err);
