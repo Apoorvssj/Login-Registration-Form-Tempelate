@@ -28,15 +28,16 @@ app.use(express.json());
 app.use(helmet()); //install helmet npm and also see morgon npm
 
 //example
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
   res.send("Hello World!");
 });
 
 //routes used
-app.use("/", registerRoute);
-app.use("/", loginRoute);
-app.use("/", check);
-app.use("/", otp);
+// /api/ for vercel deployment
+app.use("/api/", registerRoute);
+app.use("/api/", loginRoute);
+app.use("/api/", check);
+app.use("/api/", otp);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
