@@ -38,7 +38,10 @@ export const Otp = ({ values, handleInputChange, setOpenotp, setValue }) => {
   };
 
   return (
-    <div className="z-20 absolute  bg-white bg-opacity-60 backdrop-filter backdrop-blur-md flex flex-col justify-between   w-4/5 h-2/5 shadow-xl rounded-lg overflow-hidden xl:w-96 sm:w-2/5">
+    <div
+      style={{ position: "absolute", zIndex: "20" }}
+      className="bg-white bg-opacity-60 backdrop-filter backdrop-blur-md flex flex-col justify-between w-4/5 h-2/5 shadow-xl rounded-lg overflow-hidden xl:w-96 sm:w-2/5"
+    >
       <div
         onClick={() => setOpenotp(false)}
         className="flex justify-end items-start w-full p-2"
