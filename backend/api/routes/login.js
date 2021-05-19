@@ -3,7 +3,7 @@
 const router = require("express").Router();
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken"); //used to givea unique token to a person if he/she is logged in
-const bcrypt = require("bcrypt"); //used to encrypt password
+const bcrypt = require("bcryptjs"); //used to encrypt password
 
 router.post("/login", async (req, res) => {
   try {
