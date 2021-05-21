@@ -49,7 +49,7 @@ router.post("/otp", async (req, res) => {
     if (Foundemail) {
       genotp = Foundemail.otp;
       sendmail();
-      return res.status(200).json(Foundemail);
+      return res.status(200).json("Otp sent");
     }
 
     const NEW_OTP = new otpModel({
