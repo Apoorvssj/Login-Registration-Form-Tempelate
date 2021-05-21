@@ -59,32 +59,32 @@ Install the `devDependencies` so you can run the tests:
  npm install
 ```
 
-### Set Up your env for backend
+### Set Up your `.env` file for backend
 
-- In backend folder create a .env file and variables given below.
+- In backend folder create a `.env` file and variables given below.
 
-* Create your db collection in mongoDB and connect it to your app thourgh setting up an environment variable in .env file
+* Create your db collection in mongoDB and connect it to your app thourgh setting up an environment variable in `.env` file
 
 ```env
 mongo_url = "your collection url"
 ```
 
-- Create your jwt key variable in your env
+- Create your jwt key variable in your `.env` file
 
 ```env
 jwt_key = "set any key you want"
 ```
 
-- Add email and password in env from which verification emails are to sent
+- Add email and password in `.env` file from which verification emails are to sent
 
 ```env
 emailID = "gmail id"
 password = "password"
 ```
 
-### Set Up your env for frontend
+### Set Up your `.env` file for frontend
 
-- In frontend folder create a .env.local file and variables given below.
+- In frontend folder create a `.env.local` file and variables given below.
 
 ```env
 //for local port
@@ -94,9 +94,9 @@ NEXT_PUBLIC_BACKEND_API_PATH = http://localhost:3000/api
 NEXT_PUBLIC_BACKEND_API_PATH = "deployed app url"
 ```
 
-### Set Up your smtp server for email verification functionality
+### Set Up your `smtp server` for email verification functionality
 
-- In "./backend/api/routes/otp.js"
+- In `./backend/api/routes/otp.js`
 - - when in development
 
 ```js
@@ -122,7 +122,7 @@ let mailTransporter = nodemailer.createTransport({
 });
 ```
 
-- - Note: We are using gmail as our smtp server, which is less secure than a custom smtp server as said on nodemailer docs. So if you can host your own smtp server , please use that.
+- - Note: We are using `gmail` as our smtp server, which is less secure than a custom smtp server as said on nodemailer docs. So if you can host your own smtp server , please use that.
 
 Now you have _everything_ you need to start this Tempelate !
 
