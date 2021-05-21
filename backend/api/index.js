@@ -4,7 +4,8 @@ const cors = require("cors");
 const helmet = require("helmet");
 const express = require("express");
 const app = express();
-const port = 5000; //custom port
+// process.env.PORT will given by deployment(heroku) itself
+const port = process.env.PORT || 5000; //custom port
 app.use(cors());
 // local imports
 const registerRoute = require("./routes/register");
