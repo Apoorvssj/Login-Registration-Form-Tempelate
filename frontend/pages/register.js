@@ -6,6 +6,13 @@ import Link from "next/link";
 import registerAnim from "../animations/registration-animation.json";
 import { useState } from "react";
 import Otp from "../src/components/Otp";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  cardAnimation,
+  titleAnim,
+  innerCardAnimation,
+  hover,
+} from "../animations/animations";
 
 //NEW INPUT CHANGE HANDLER OPTIMIZED APPROACH BY NOT USING MULTIPLE STATES, BUT JUST ONE FOR ALL INPUTS, like this =
 //state
@@ -70,15 +77,23 @@ const Register = () => {
       style={{ background: `url("/abstract.png")`, objectFit: "cover" }}
       className="card-shadow h-screen w-screen flex flex-row justify-center items-center"
     >
-      {Openotp && (
-        <Otp
-          values={values}
-          handleInputChange={handleInputChange}
-          setOpenotp={setOpenotp}
-          setValue={setValue}
-        />
-      )}
-      <div className="card z-10 flex flex-row   w-4/5 h-4/5 shadow-xl rounded-lg overflow-hidden backdrop-filter backdrop-blur-lg xl:w-3/5 md:w-11/12 lg:w-4/5">
+      <AnimatePresence>
+        {Openotp && (
+          <Otp
+            values={values}
+            handleInputChange={handleInputChange}
+            setOpenotp={setOpenotp}
+            setValue={setValue}
+          />
+        )}
+      </AnimatePresence>
+      <motion.div
+        className="card z-10 flex flex-row   w-4/5 h-4/5 shadow-xl rounded-lg overflow-hidden backdrop-filter backdrop-blur-lg xl:w-3/5 md:w-11/12 lg:w-4/5"
+        variants={cardAnimation}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+      >
         <div className="hidden md:w-2/5 md:flex">
           <div
             className="w-full h-full bg-white bg-opacity-60 flex flex-row justify-center items-center "
@@ -96,7 +111,10 @@ const Register = () => {
         </div>
         <div className="w-full  bg-gray-800 bg-opacity-20 flex flex-col items-center justify-around md:w-3/5">
           <div className=" flex justify-end w-full pr-4 ">
-            <div className="bg-white bg-opacity-60 w-max rounded-lg p-1">
+            <motion.div
+              className="bg-white bg-opacity-60 w-max rounded-lg p-1"
+              whileHover={hover}
+            >
               <span className="text-black shadow-2xl">
                 Already have an acount?
               </span>
@@ -106,70 +124,84 @@ const Register = () => {
                   login
                 </span>
               </Link>
-            </div>
+            </motion.div>
           </div>
           {
             //<div className="flex items-center w-full h-1/6"></div>
           }
-          <div className="w-4/5 h-4/5 flex flex-col items-center justify-evenly bg-black bg-opacity-70 rounded-xl shadow-2xl">
-            <h3 className=" text-xl  text-white sm:text-2xl md:text-3xl">
+          <motion.div
+            className="w-4/5 h-4/5 flex flex-col items-center justify-evenly bg-black bg-opacity-70 rounded-xl shadow-2xl"
+            variants={innerCardAnimation}
+          >
+            <motion.h3
+              className=" text-xl  text-white sm:text-2xl md:text-3xl"
+              variants={titleAnim}
+            >
               Create an account
-            </h3>
+            </motion.h3>
             <form
               onSubmit={otpHandler}
               className="flex flex-col justify-evenly h-4/6 w-4/6"
             >
-              <div className="flex flex-col">
+              <motion.div className="flex flex-col" variants={titleAnim}>
                 <label htmlFor="name" className="text-white">
                   Enter name
                 </label>
-                <input
+                <motion.input
                   name="username"
                   value={values.username}
                   onChange={handleInputChange}
                   type="text"
                   id="name"
                   className="p-2 rounded-lg"
+                  whileTap={{ scale: 0.9 }}
                 />
-              </div>
-              <div className="flex flex-col">
+              </motion.div>
+              <motion.div className="flex flex-col" variants={titleAnim}>
                 <label htmlFor="email" className="text-white">
                   Enter email
                 </label>
-                <input
+                <motion.input
                   name="email"
                   value={values.email}
                   onChange={handleInputChange}
                   type="text"
                   id="email"
                   className="p-2 rounded-lg"
+                  whileTap={{ scale: 0.9 }}
                 />
-              </div>
-              <div className="flex flex-col">
+              </motion.div>
+              <motion.div className="flex flex-col" variants={titleAnim}>
                 <label htmlFor="password" className="text-white">
                   Enter password
                 </label>
-                <input
+                <motion.input
                   name="password"
                   value={values.password}
                   onChange={handleInputChange}
                   type="text"
                   id="password"
                   className="p-2 rounded-lg"
+                  whileTap={{ scale: 0.9 }}
                 />
-              </div>
-              <div className="flex justify-center w-full">
-                <button
+              </motion.div>
+              <motion.div
+                className="flex justify-center w-full"
+                variants={titleAnim}
+              >
+                <motion.button
                   type="submit"
                   className=" w-3/5 py-4 text-white bg-blue-600 rounded-lg"
+                  whileHover={hover}
+                  whileTap={{ scale: 1 }}
                 >
                   Generate Otp
-                </button>
-              </div>
+                </motion.button>
+              </motion.div>
             </form>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

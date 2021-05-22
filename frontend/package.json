@@ -8,8 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "autoprefixer": "^10.2.3",
+    "framer-motion": "^4.1.17",
     "lottie-react-web": "^2.2.2",
     "next": "10.2.0",
+    "postcss": "^8.2.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
@@ -17,9 +20,7 @@
     "react-toastify": "^7.0.4",
     "redux": "^4.1.0",
     "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.3.0",
-    "autoprefixer": "^10.2.3",
-    "postcss": "^8.2.4"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "tailwindcss": "^2.1.2",

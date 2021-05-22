@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { RiCloseCircleLine } from "react-icons/ri";
+import { motion } from "framer-motion";
+import { popUp, hover } from "../../animations/animations";
 
 export const Otp = ({ values, handleInputChange, setOpenotp, setValue }) => {
   const { push } = useRouter();
@@ -38,9 +40,13 @@ export const Otp = ({ values, handleInputChange, setOpenotp, setValue }) => {
   };
 
   return (
-    <div
+    <motion.div
       style={{ position: "absolute", zIndex: "20" }}
       className="bg-white bg-opacity-60 backdrop-filter backdrop-blur-md flex flex-col justify-between w-4/5 h-2/5 shadow-xl rounded-lg overflow-hidden xl:w-96 sm:w-2/5"
+      variants={popUp}
+      initial="hidden"
+      animate="show"
+      exit="exit"
     >
       <div
         onClick={() => setOpenotp(false)}
@@ -54,24 +60,27 @@ export const Otp = ({ values, handleInputChange, setOpenotp, setValue }) => {
           onSubmit={registerHandler}
           className="flex flex-col justify-around w-3/5 h-3/5"
         >
-          <input
+          <motion.input
             name="otp"
             value={values.otp}
             type="text"
             onChange={handleInputChange}
             className="p-2 rounded-lg bg-black bg-opacity-70 text-white"
+            whileTap={{ scale: 0.9 }}
           />
           <div className="w-full flex justify-center">
-            <button
+            <motion.button
               type="submit"
               className="w-3/5 py-2 text-white bg-blue-600 rounded-lg justify-self-center"
+              whileHover={hover}
+              whileTap={{ scale: 1 }}
             >
               Register
-            </button>
+            </motion.button>
           </div>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

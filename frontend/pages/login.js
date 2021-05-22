@@ -8,6 +8,13 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/actions/tokenAction";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+import {
+  cardAnimation,
+  titleAnim,
+  innerCardAnimation,
+  hover,
+} from "../animations/animations";
 
 let initialValues = {
   // nameValue: "",
@@ -66,7 +73,13 @@ const Login = () => {
       style={{ background: `url("/abstract.png")`, objectFit: "cover" }}
       className="card-shadow h-screen w-screen grid place-items-center"
     >
-      <div className="card z-10 shadow-xl rounded-lg h-4/5 w-4/5 overflow-hidden backdrop-filter backdrop-blur-lg grid grid-cols-1 md:grid-cols-3 xl:w-3/5 md:w-11/12 lg:w-4/5">
+      <motion.div
+        className="card z-10 shadow-xl rounded-lg h-4/5 w-4/5 overflow-hidden backdrop-filter backdrop-blur-lg grid grid-cols-1 md:grid-cols-3 xl:w-3/5 md:w-11/12 lg:w-4/5"
+        variants={cardAnimation}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+      >
         <div className="hidden md:grid">
           <div
             className="w-full h-full bg-white bg-opacity-60 flex flex-row justify-center items-center "
@@ -84,7 +97,10 @@ const Login = () => {
         </div>
         <div className="bg-gray-800 bg-opacity-20 col-span-2 grid grid-rows-6 justify-items-center items-center sm:items-start">
           <div className="justify-self-end pr-4 self-start pt-4 ">
-            <div className="bg-white bg-opacity-60 w-max rounded-lg p-1">
+            <motion.div
+              className="bg-white bg-opacity-60 w-max rounded-lg p-1"
+              whileHover={hover}
+            >
               <span className="text-black shadow-2xl">
                 Don't have a account?
               </span>
@@ -94,56 +110,73 @@ const Login = () => {
                   register
                 </span>
               </Link>
-            </div>
+            </motion.div>
           </div>
-          <div className=" w-5/6 h-full row-span-4 bg-black bg-opacity-70 rounded-xl grid content-around justify-items-center shadow-2xl sm:w-4/5">
-            <h3 className=" text-xl text-white sm:text-2xl md:text-3xl">
+          <motion.div
+            className=" w-5/6 h-full row-span-4 bg-black bg-opacity-70 rounded-xl grid content-around justify-items-center shadow-2xl sm:w-4/5"
+            variants={innerCardAnimation}
+          >
+            <motion.h3
+              className=" text-xl text-white sm:text-2xl md:text-3xl"
+              variants={titleAnim}
+            >
               Login
-            </h3>
+            </motion.h3>
             <form
               onSubmit={submitHandler}
               className=" grid content-around w-5/6 gap-y-8 sm:w-4/6"
             >
               <div className="flex  w-full justify-center">
-                <div className="flex flex-col w-3/4 sm:w-full">
+                <motion.div
+                  className="flex flex-col w-3/4 sm:w-full"
+                  variants={titleAnim}
+                >
                   <label htmlFor="name" className="text-white">
                     Enter email
                   </label>
-                  <input
+                  <motion.input
                     name="email"
                     value={values.email}
                     onChange={handleInputChange}
                     type="text"
                     id="name"
                     className=" p-2 rounded-lg"
+                    whileTap={{ scale: 0.9 }}
                   />
-                </div>
+                </motion.div>
               </div>
               <div className="flex  w-full justify-center">
-                <div className="flex flex-col w-3/4 sm:w-full">
+                <motion.div
+                  className="flex flex-col w-3/4 sm:w-full"
+                  variants={titleAnim}
+                >
                   <label htmlFor="password" className="text-white">
                     Enter password
                   </label>
-                  <input
+                  <motion.input
                     name="password"
                     value={values.password}
                     onChange={handleInputChange}
                     type="text"
                     id="password"
                     className="p-2 rounded-lg"
+                    whileTap={{ scale: 0.9 }}
                   />
-                </div>
+                </motion.div>
               </div>
-              <button
+              <motion.button
                 type="submit"
                 className=" w-3/5 py-3 items-end justify-self-center text-white bg-blue-600 rounded-lg mt-2"
+                variants={titleAnim}
+                whileHover={hover}
+                whileTap={{ scale: 1 }}
               >
                 Login
-              </button>
+              </motion.button>
             </form>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

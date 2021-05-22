@@ -8,6 +8,14 @@ import { useDispatch } from "react-redux";
 import { logout } from "../redux/actions/tokenAction";
 import teenWalking from "../animations/teen-walking.json";
 import Lottie from "lottie-react-web";
+import { motion } from "framer-motion";
+import {
+  cardAnimation,
+  titleAnim,
+  innerCardAnimation,
+  hover,
+  popUp,
+} from "../animations/animations";
 
 const LoggedIn = () => {
   const selector = useSelector((state) => state.token);
@@ -45,7 +53,13 @@ const LoggedIn = () => {
       style={{ background: `url("/abstract.png")`, objectFit: "cover" }}
       className="card-shadow h-screen w-screen flex flex-row justify-center items-center"
     >
-      <div className="card z-10 flex flex-row   w-4/5 h-4/5 shadow-xl rounded-lg overflow-hidden backdrop-filter backdrop-blur-lg xl:w-3/5 md:w-11/12 lg:w-4/5">
+      <motion.div
+        className="card z-10 flex flex-row   w-4/5 h-4/5 shadow-xl rounded-lg overflow-hidden backdrop-filter backdrop-blur-lg xl:w-3/5 md:w-11/12 lg:w-4/5"
+        variants={cardAnimation}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+      >
         <div className="hidden md:w-2/5 md:flex">
           <div className="w-full h-full bg-white bg-opacity-60 flex flex-row justify-center items-center ">
             <Lottie
@@ -58,10 +72,16 @@ const LoggedIn = () => {
           </div>
         </div>
         <div className="w-full  bg-gray-800 bg-opacity-20 flex flex-col items-center justify-around md:w-3/5">
-          <div className="w-4/5 h-4/5 flex flex-col items-center justify-evenly bg-black bg-opacity-70 rounded-xl shadow-2xl">
+          <motion.div
+            className="w-4/5 h-4/5 flex flex-col items-center justify-evenly bg-black bg-opacity-70 rounded-xl shadow-2xl"
+            variants={innerCardAnimation}
+          >
             {user ? (
               <div className="flex flex-col w-full h-full justify-around items-center">
-                <div className="bg-white bg-opacity-60 w-3/5 rounded-lg p-1">
+                <motion.div
+                  className="bg-white bg-opacity-60 w-3/5 rounded-lg p-1"
+                  variants={popUp}
+                >
                   <span className="text-black shadow-2xl text-2xl">
                     YAY!!! ,{" "}
                     <span className="text-white font-semibold">
@@ -69,7 +89,7 @@ const LoggedIn = () => {
                     </span>{" "}
                     <br /> You are Logged in....
                   </span>
-                </div>
+                </motion.div>
 
                 <div className="flex justify-center w-full">
                   <button
@@ -82,21 +102,28 @@ const LoggedIn = () => {
               </div>
             ) : (
               <div className="flex flex-col w-full h-full justify-center items-center">
-                <div className="bg-white bg-opacity-60 w-3/5 rounded-lg p-1">
+                <motion.div
+                  className="bg-white bg-opacity-60 w-3/5 rounded-lg p-1"
+                  variants={popUp}
+                >
                   <span className="text-black shadow-2xl text-xl sm:text-2xl">
                     You should be Logged In...
                   </span>
-                </div>
+                </motion.div>
                 <Link href={"/login"}>
-                  <span className="text-blue-700 text-xl font-semibold cursor-pointer">
+                  <motion.span
+                    className="text-blue-700 text-xl font-semibold cursor-pointer"
+                    variants={popUp}
+                    whileHover={hover}
+                  >
                     Go to Login!!
-                  </span>
+                  </motion.span>
                 </Link>
               </div>
             )}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
