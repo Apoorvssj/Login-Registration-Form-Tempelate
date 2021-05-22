@@ -102,33 +102,37 @@ const Login = () => {
             </h3>
             <form
               onSubmit={submitHandler}
-              className=" grid content-around justify-center  w-5/6 gap-y-8 sm:w-4/6"
+              className=" grid content-around w-5/6 gap-y-8 sm:w-4/6"
             >
-              <div className="flex flex-col">
-                <label htmlFor="name" className="text-white">
-                  Enter email
-                </label>
-                <input
-                  name="email"
-                  value={values.email}
-                  onChange={handleInputChange}
-                  type="text"
-                  id="name"
-                  className=" p-2 rounded-lg"
-                />
+              <div className="flex  w-full justify-center">
+                <div className="flex flex-col w-3/4 sm:w-full">
+                  <label htmlFor="name" className="text-white">
+                    Enter email
+                  </label>
+                  <input
+                    name="email"
+                    value={values.email}
+                    onChange={handleInputChange}
+                    type="text"
+                    id="name"
+                    className=" p-2 rounded-lg"
+                  />
+                </div>
               </div>
-              <div className="flex flex-col">
-                <label htmlFor="password" className="text-white">
-                  Enter password
-                </label>
-                <input
-                  name="password"
-                  value={values.password}
-                  onChange={handleInputChange}
-                  type="text"
-                  id="password"
-                  className="p-2 rounded-lg"
-                />
+              <div className="flex  w-full justify-center">
+                <div className="flex flex-col w-3/4 sm:w-full">
+                  <label htmlFor="password" className="text-white">
+                    Enter password
+                  </label>
+                  <input
+                    name="password"
+                    value={values.password}
+                    onChange={handleInputChange}
+                    type="text"
+                    id="password"
+                    className="p-2 rounded-lg"
+                  />
+                </div>
               </div>
               <button
                 type="submit"
