@@ -8,10 +8,9 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_PATH}/api`, {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_PATH}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
     })
       .then((res) => res.json())
       .catch((err) => console.log(err));
