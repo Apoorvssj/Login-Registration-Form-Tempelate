@@ -82,7 +82,7 @@ const Login = () => {
             />
           </div>
         </div>
-        <div className="bg-gray-800 bg-opacity-20 col-span-1 grid grid-rows-6 justify-items-center items-center sm:items-start md:col-span-2">
+        <div className="bg-gray-800 bg-opacity-20 col-span-2 grid grid-rows-6 justify-items-center items-center sm:items-start">
           <div className="justify-self-end pr-4 self-start pt-4 ">
             <div className="bg-white bg-opacity-60 w-max rounded-lg p-1">
               <span className="text-black shadow-2xl">
