@@ -11,10 +11,10 @@ import Lottie from "lottie-react-web";
 import { motion } from "framer-motion";
 import {
   cardAnimation,
-  titleAnim,
   innerCardAnimation,
   hover,
   popUp,
+  fade,
 } from "../animations/animations";
 
 const LoggedIn = () => {
@@ -92,12 +92,15 @@ const LoggedIn = () => {
                 </motion.div>
 
                 <div className="flex justify-center w-full">
-                  <button
+                  <motion.button
                     className=" w-3/5 py-4 text-white bg-blue-600 rounded-lg"
                     onClick={onLogoutHandler}
+                    variants={fade}
+                    whileHover={hover}
+                    whileTap={{ scale: 1 }}
                   >
                     Logout
-                  </button>
+                  </motion.button>
                 </div>
               </div>
             ) : (
