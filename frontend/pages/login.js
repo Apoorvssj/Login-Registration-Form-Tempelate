@@ -82,7 +82,7 @@ const Login = () => {
             />
           </div>
         </div>
-        <div className="bg-gray-800 bg-opacity-20 col-span-2 grid grid-rows-6 justify-items-center items-center sm:items-start">
+        <div className="bg-gray-800 bg-opacity-20 col-span-1 grid grid-rows-6 justify-items-center items-center sm:items-start md:col-span-2">
           <div className="justify-self-end pr-4 self-start pt-4 ">
             <div className="bg-white bg-opacity-60 w-max rounded-lg p-1">
               <span className="text-black shadow-2xl">
@@ -102,9 +102,9 @@ const Login = () => {
             </h3>
             <form
               onSubmit={submitHandler}
-              className=" grid content-around  w-5/6 gap-y-8 sm:w-4/6"
+              className=" grid content-around justify-center  w-5/6 gap-y-8 sm:w-4/6"
             >
-              <div className="grid">
+              <div className="flex flex-col">
                 <label htmlFor="name" className="text-white">
                   Enter email
                 </label>
@@ -114,10 +114,10 @@ const Login = () => {
                   onChange={handleInputChange}
                   type="text"
                   id="name"
-                  className="p-2 rounded-lg"
+                  className=" p-2 rounded-lg"
                 />
               </div>
-              <div className="grid ">
+              <div className="flex flex-col">
                 <label htmlFor="password" className="text-white">
                   Enter password
                 </label>
