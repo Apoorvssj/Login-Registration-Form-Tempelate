@@ -113,18 +113,18 @@ const Login = () => {
             </motion.div>
           </div>
           <motion.div
-            className=" w-5/6 h-full row-span-4 bg-black bg-opacity-70 rounded-xl grid content-around justify-self-center justify-items-center shadow-2xl sm:w-4/5"
+            className=" w-5/6 h-full row-span-4 bg-black bg-opacity-70 rounded-xl grid content-around justify-self-center  shadow-2xl sm:w-4/5"
             variants={innerCardAnimation}
           >
             <motion.h3
-              className=" text-xl text-white sm:text-2xl md:text-3xl"
+              className=" justify-self-center text-xl text-white sm:text-2xl md:text-3xl"
               variants={titleAnim}
             >
               Login
             </motion.h3>
             <form
               onSubmit={submitHandler}
-              className=" grid content-around w-5/6 gap-y-8 sm:w-4/6"
+              className=" justify-self-center grid content-around w-5/6 gap-y-8 sm:w-4/6"
             >
               <div className="flex  w-full justify-center">
                 <motion.div
