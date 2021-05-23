@@ -50,7 +50,7 @@ const LoggedIn = () => {
 
   return (
     <div
-      style={{ background: `url("/abstract2.png")`, objectFit: "cover" }}
+      style={{ background: `url("/abstract2.png") no-repeat` }}
       className="card-shadow h-screen w-screen flex flex-row justify-center items-center"
     >
       <motion.div

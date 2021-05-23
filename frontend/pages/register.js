@@ -74,7 +74,7 @@ const Register = () => {
   // trying full flex structure, just for fun
   return (
     <div
-      style={{ background: `url("/abstract2.png")`, objectFit: "cover" }}
+      style={{ background: `url("/abstract2.png") no-repeat` }}
       className="card-shadow h-screen w-screen flex flex-row justify-center items-center"
     >
       <AnimatePresence>
@@ -179,7 +179,7 @@ const Register = () => {
                   name="password"
                   value={values.password}
                   onChange={handleInputChange}
-                  type="text"
+                  type="password"
                   id="password"
                   className="p-2 rounded-lg"
                   whileTap={{ scale: 0.9 }}
