@@ -74,7 +74,7 @@ const Register = () => {
   // trying full flex structure, just for fun
   return (
     <div
-      style={{ background: `url("/abstract.png")`, objectFit: "cover" }}
+      style={{ background: `url("/abstract2.png")`, objectFit: "cover" }}
       className="card-shadow h-screen w-screen flex flex-row justify-center items-center"
     >
       <AnimatePresence>

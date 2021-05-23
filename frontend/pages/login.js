@@ -70,19 +70,19 @@ const Login = () => {
   // trying full grid structure, just for fun
   return (
     <div
-      style={{ background: `url("/abstract.png")`, objectFit: "cover" }}
+      style={{ background: `url("/abstract2.png")`, objectFit: "cover" }}
       className="card-shadow h-screen w-screen grid place-items-center"
     >
       <motion.div
-        className="card z-10 shadow-xl rounded-lg h-4/5 w-4/5 overflow-hidden backdrop-filter backdrop-blur-lg grid grid-cols-1 md:grid-cols-3 xl:w-3/5 md:w-11/12 lg:w-4/5"
+        className="card z-10 shadow-xl rounded-lg h-4/5 w-5/6 overflow-hidden backdrop-filter backdrop-blur-lg grid grid-cols-1 md:grid-cols-3 md:w-3/5"
         variants={cardAnimation}
         initial="hidden"
         animate="show"
         exit="exit"
       >
-        <div className="hidden md:grid">
+        <div className="hidden h-full md:grid">
           <div
-            className="w-full h-full bg-white bg-opacity-60 flex flex-row justify-center items-center "
+            className=" w-full bg-white bg-opacity-60 flex flex-row justify-center items-center "
             onClick={() => setIsClicked(!onClick)}
           >
             <Lottie
@@ -95,7 +95,7 @@ const Login = () => {
             />
           </div>
         </div>
-        <div className="bg-gray-800 bg-opacity-20 col-span-2 grid grid-rows-6 justify-items-center items-center sm:items-start">
+        <div className="bg-gray-800 bg-opacity-20 col-span-2 h-full grid grid-rows-6 ">
           <div className="justify-self-end pr-4 self-start pt-4 ">
             <motion.div
               className="bg-white bg-opacity-60 w-max rounded-lg p-1"
@@ -113,7 +113,7 @@ const Login = () => {
             </motion.div>
           </div>
           <motion.div
-            className=" w-5/6 h-full row-span-4 bg-black bg-opacity-70 rounded-xl grid content-around justify-items-center shadow-2xl sm:w-4/5"
+            className=" w-5/6 h-full row-span-4 bg-black bg-opacity-70 rounded-xl grid content-around justify-self-center justify-items-center shadow-2xl sm:w-4/5"
             variants={innerCardAnimation}
           >
             <motion.h3
