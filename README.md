@@ -1,15 +1,27 @@
 <div>
 
-# Login and Registration Form Using MERN stack, Redux, jwt and2 step verification
+# Login and Registration Form Using MERN stack, Redux, jwt and 2 step verification
 
 <a href="https://lr-tempelate-frontend.vercel.app/"
  alt="Try the Demo on Vercel!">
+
+## `/register`
+
 <img src="./screenshots/screenshot-3.png"
   alt="ToDo!">
+
+## `/login`
+
 <img src="./screenshots/screenshot-2.png"
   alt="ToDo!">
+
+## `/loggedin {when you are logged in}`
+
 <img src="./screenshots/screenshot-1.png"
   alt="ToDo!">
+
+## `/loggedin {when you are not logged in}`
+
 <img src="./screenshots/screenshot-4.png"
   alt="ToDo!">
 </a>
