@@ -29,15 +29,15 @@
 
 Build a fully functional Login and Registration Form! <br />
 
-- [x] Building an App using MERN stack where React and Next.js for frontend and node.js with expressjs & mongoosejs for backend!
+- [x] Building an App using MERN stack where React and Next.js for frontend and node.js with [expressjs](https://expressjs.com/en/4x/api.html#express) & [mongoosejs](https://mongoosejs.com/) for backend!
 - [x] MongoDB as database
-- [x] UI build using tailwindcss!
-- [x] State Management with Redux!
-- [x] Password encyption using bcryptjs!
-- [x] Logged IN checking using a token by using jwt(jsonwebtoken)!
-- [x] Email verification done using nodemailer!
-- [x] Animations made using Famer Motion Api!
-- [x] Animated icons and svg using lottie!
+- [x] UI build using [tailwindcss](https://tailwindcss.com/docs)!
+- [x] State Management with [react redux](https://react-redux.js.org/api/hooks)!
+- [x] Password encyption using [bcryptjs](https://www.npmjs.com/package/bcryptjs)!
+- [x] Logged IN checking using a token by using [jwt](https://www.npmjs.com/package/jsonwebtoken)!
+- [x] Email verification done using [nodemailer](https://nodemailer.com/about/)!
+- [x] Animations made using [Famer Motion Api](https://www.framer.com/api/motion/)!
+- [x] Animated icons and svg using [lottie](https://lottiefiles.com/featured)!
 
 ## _Who?_
 
@@ -96,8 +96,9 @@ NEXT_PUBLIC_BACKEND_API_PATH = "deployed app url"
 
 ### Set Up your `smtp server` for email verification functionality
 
-- In `./backend/api/routes/otp.js`
-- - when in development
+### In `./backend/api/routes/otp.js`
+
+- When in development
 
 ```js
 let mailTransporter = nodemailer.createTransport({
@@ -109,7 +110,7 @@ let mailTransporter = nodemailer.createTransport({
 });
 ```
 
-- - when in production
+- When in production
 
 ```js
 let mailTransporter = nodemailer.createTransport({
@@ -122,7 +123,7 @@ let mailTransporter = nodemailer.createTransport({
 });
 ```
 
-- - Note: We are using `gmail` as our smtp server, which is less secure than a custom smtp server as said on nodemailer docs. So if you can host your own smtp server , please use that.
+- Note: We are using `gmail` as our smtp server, which is less secure than a custom smtp server as said on nodemailer docs. So if you can host your own smtp server , please use that.
 
 Now you have _everything_ you need to start this Tempelate !
 
@@ -133,8 +134,8 @@ Now you have _everything_ you need to start this Tempelate !
 ## Additional info
 
 - How is email verification applied?
-- - When clicked on generate otp button on `/register` page , `/otp` route in fetched from `/backend/api/routes/otp`
-- - Then if , user doesnot already exists we will send `senmail()` function
+  - When clicked on generate otp button on `/register` page , `/otp` route in fetched from `/backend/api/routes/otp`
+  - Then if , user doesnot already exists we will send `senmail()` function
 
 ```js
 let sendmail = async () => {
@@ -175,7 +176,7 @@ const user = new User({
 
 - How is jwt used for creating a private route page `/loggedin` only available with info for loggeg in user?
 
-- - When clicked on login button , a jason web token will be given to the user using jwt
+  - When clicked on login button , a jason web token will be given to the user using jwt
 
 ```js
 //assinging token
