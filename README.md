@@ -129,3 +129,73 @@ Now you have _everything_ you need to start this Tempelate !
 ```sh
  npm run dev
 ```
+
+## Additional info
+
+- How is email verification applied?
+- - When clicked on generate otp button on `/register` page , `/otp` route in fetched from `/backend/api/routes/otp`
+- - Then if , user doesnot already exists we will send `senmail()` function
+
+```js
+let sendmail = async () => {
+  await mailTransporter.sendMail({
+    from: `${user}`,
+    to: req.body.email,
+    subject: "OTP for you",
+    html: `
+        <div>
+          <h1>Email Confirmation</h1>
+          <h2>Hello ${req.body.email}</h2>
+          <p>${genotp}</p>
+        </div>
+        `,
+  });
+};
+```
+
+- - Then with mailtransporter created by nodemailer , mail will be sent to the user's email
+- - Then from frontend a modal will pop up to write the recieved otp , and when clicked on register button on that modal `/backend/api/routes/register.js` will be fetched , here we will first check , if the otp matches from mongoDb and what user has typed by
+
+```js
+Foundotp = await otp.findOne({ email: req.body.email, otp: req.body.otp });
+```
+
+- - If otp matches we will continue with password encyption using `bcyptjs` or error will be thrown. Then user will be registered with encypted password
+
+```js
+//password ecryption using bcrypt
+const salt = await bcrypt.genSalt(10);
+const hashedPassword = await bcrypt.hash(req.body.password, salt);
+const user = new User({
+  username: req.body.username,
+  email: req.body.email,
+  password: hashedPassword,
+});
+```
+
+- How is jwt used for creating a private route page `/loggedin` only available with info for loggeg in user?
+
+- - When clicked on login button , a jason web token will be given to the user using jwt
+
+```js
+//assinging token
+const token = await jwt.sign({ userID: FoundUser._id }, process.env.jwt_key);
+```
+
+- - After this fetch of `/login` route , we will store token in a global piece if state using redux and in our localstorage using redux persist, which will be set to null only when clicked on logout button in `/loggedin`
+
+- - Now when user accesses `/loggedin` page , if the token exist we will send it to header of browser(req) as authorization variable using fetch function
+
+- - Now in `/backend/api/routes/checkLogin.js` will we apply a middleware for checking if token is present which is in `/backend/api/middlewares/loggedIn.js`
+
+- - In middleware we will req value of authorization from header, and if authorization value is there , user will be logged in
+
+- - Here, after login , we are sending user data to the private route `/loggedin` for them, and displaying `user.name`, You can do nothing you like in this private route, or create multiple routes like this
+
+```js
+// in middleware loggedIn
+req.user = USER; //USER is our user model fetched from mongoDB
+// in checkLogin
+const user = req.user;
+res.status(200).json(user);
+```
